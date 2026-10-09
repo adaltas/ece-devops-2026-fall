@@ -1,11 +1,22 @@
-version: '3'
 services:
   redis:
-    image: redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - db-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
   web:
-    # COMPLETE HERE
+    depends_on:
+      - redis
     build: .
     ports:
       - "5000:8080"
     environment:
-      # ...
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    restart: unless-stopped
+    read_only: true
+volumes:
+  db-data:
