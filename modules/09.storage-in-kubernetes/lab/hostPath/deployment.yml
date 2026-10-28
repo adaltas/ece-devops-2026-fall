@@ -16,6 +16,10 @@ spec:
     spec:
       volumes:
         # TODO complete
+      - name: volume-host-path
+        hostPath:
+          path: /mnt/hostPath
+          type: DirectoryOrCreate
       containers:
       - name: nginx-container
         image: nginx
@@ -24,3 +28,5 @@ spec:
             name: "http-server"
         volumeMounts:
           # TODO complete
+        - name: volume-host-path
+          mountPath: /usr/share/nginx/html

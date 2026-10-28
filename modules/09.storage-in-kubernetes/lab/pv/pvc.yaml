@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+  labels:
+    app: nginx-storage-demo
+  annotations:
+    description: "Storage request to the task-pv-volume persistant volume."
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: "task-pv-volume"
+  selector:
+    matchLabels:
+      type: local
+      tier: backend

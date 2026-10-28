@@ -16,6 +16,8 @@ spec:
     spec:
       volumes:
         # TODO complete
+      - name: volume-empty-dir
+        emptyDir: {}
       containers:
       - name: nginx-container
         image: nginx
@@ -24,3 +26,5 @@ spec:
             name: "http-server"
         volumeMounts:
           # TODO complete
+        - name: volume-empty-dir
+          mountPath: /usr/share/nginx/html

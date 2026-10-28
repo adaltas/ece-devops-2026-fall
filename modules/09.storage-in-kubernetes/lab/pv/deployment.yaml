@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pv-deployment
+  labels:
+    app: nginx-pv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-pv
+  template:
+    metadata:
+      labels:
+        app: nginx-pv
+    spec:
+      volumes:
+      - name: volume-pv-storage
+        persistentVolumeClaim:
+          claimName: task-pv-claim
+      containers:
+      - name: nginx-container
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: "http-server"
+        volumeMounts:
+        - name: volume-pv-storage
+          mountPath: /usr/share/nginx/html
