@@ -5,6 +5,10 @@
 <!-- Place the date here. -->
 - Ing4 CYB Gr01 (fr): 30/11/2026 at 11:59:59 PM.
 - Ing4 CYB Gr02 (fr): 11/12/2026 at 11:59:59 PM.
+  - Submission by email to `amarie@omnesintervenant.com`. Note that once you submit the project by email, no commits later than this date will be taken into consideration.
+  - It must contain the link to the github repository
+  - You must have invite `alexismarie8314` to your repository (contact me with the above email if i did not accept the invitation)
+  - It must contain the group members name
 
 ## Opportunities
 
